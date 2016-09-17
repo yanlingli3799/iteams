@@ -1,0 +1,26 @@
+{
+  "name": "iteams",
+  "description": "team collaboration tools",
+  "main": "index.js",
+  "authors": [
+    "yanlingli3799"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "team",
+    "collaboration"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}

@@ -7,8 +7,8 @@ var logger=require('morgan');
 var p_root=process.cwd();
 var app=express();
 
-var router_page=require(path.join(p_root,'app/routers/page.js'));
-var router_user=require(path.join(p_root,'app/routers/user.js'));
+var router_page=require(path.join(p_root,'app/routers/page.server.router.js'));
+var router_user=require(path.join(p_root,'app/routers/user.server.router.js'));
 
 // view engine setup
 app.set('views', path.join(p_root, 'app/views'));
