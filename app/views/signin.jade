@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .container
+    form.form-horizontal(role='form')
+      .form-group
+        h2.col-sm-offset-4.col-sm-4 Please sign in
+      .form-group
+        label.col-sm-4.control-label(for='inputEmail') Email
+        .col-sm-4
+          input#inputEmail.form-control(type='email', placeholder='Email')
+      .form-group
+        label.col-sm-4.control-label(for='inputPassword') Password
+        .col-sm-4
+          input#inputPassword.form-control(type='password', placeholder='Password')
+      .form-group
+        .col-sm-offset-4.col-sm-4
+          .checkbox
+            label
+              input(type='checkbox')
+              |  Remember me
+      .form-group
+        .col-sm-offset-4.col-sm-4
+          button.btn.btn-primary.btn-block(type='submit') Sign in
