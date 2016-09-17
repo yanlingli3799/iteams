@@ -1,0 +1,65 @@
+#!/usr/bin/env node
+//创建服务器，打开监听端口就欧了
+
+/*加载依赖项*/
+var path=require('path');
+var http = require('http');
+var p_root=process.cwd();
+
+var config=require(path.join(p_root,'config/config.js'));
+var app = require(path.join(p_root,'app.js'));
+
+/*创建HTTP服务器*/
+var server=http.createServer(app);
+
+/*启动网络服务监听端口*/
+server.listen(config.PORT,function(){
+	console.log('iteams: listening on port ',config.PORT);
+});
+
+//server.on('error',onError);
+//server.on('listening',onListening);
+
+/*
+//HTTP异常事件处理函数
+//我表示并不能看懂，generator里照搬过来的
+function onError(error) {
+
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+//事件绑定函数
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}*/
+
+/*
+//原本设置app监听端口是酱紫的
+app.listen(config.port, function(){
+  console.log('app started, listening on port:', config.port);
+});
+*/
