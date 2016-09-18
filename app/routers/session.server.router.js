@@ -15,6 +15,7 @@ router.post('/session',function(req,res,next){
 			console.log('create user success......result is ',result.toString());
 		}
 	});
+
 	res.end('post /session');
 });
 

@@ -7,7 +7,7 @@ var check=require(path.join(p_root,'config/check.js'));
 
 //主页面
 router.get('/',function(req,res,next){
-
+//测试一下
 	console.log('someone connect to me.........');
 
 	if(check.isObjectEmpty(req.cookies))

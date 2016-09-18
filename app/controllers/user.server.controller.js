@@ -2,7 +2,6 @@
 var path=require('path');
 var mongoose=require('mongoose');
 
-//require(path.join(process.cwd(),'app/models/user.server.model.js'));
 var User=mongoose.model('User');
 
 module.exports={
@@ -10,14 +9,13 @@ module.exports={
 	create:function(req,res,next,cb){
 
 	    var user = new User({
-	    	u_email:'110@qq.com',
+	    	u_email:'eeee@qq.com',
 	    	u_password:'pswd',
-	    	u_name:'name',
+	    	u_name:'eeee',
 	    	u_skills:['sk1','sk2','sk3'],
 	    	u_phone:'15555555555',
 	    	u_projects:[]
 	    });
-
 	    user.save(function(err){
 	      if(err){
 	      	console.log('create:save user error');
@@ -29,7 +27,6 @@ module.exports={
 	      	return cb(err,user.toString());
 	      }
 	    });
-
 	},
 
 	list:function(req,res,next){},
