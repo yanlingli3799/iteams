@@ -1,7 +1,6 @@
 'use strict'
 var path=require('path');
 var mongoose=require('mongoose');
-
 var User=mongoose.model('User');
 
 module.exports={
