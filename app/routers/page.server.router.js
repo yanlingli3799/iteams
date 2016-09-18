@@ -18,7 +18,7 @@ router.get('/',function(req,res,next){
 	else
 	{
 		//cookie认证，不通过清除cookie，重定向到signin；通过显示主页面
-		//res.render('index.jade', { title: 'Index' });
+		res.render('index.jade', { title: 'Index' });
 	}
 
 });
@@ -33,7 +33,7 @@ router.get('/signin',function(req,res,next){
 //注册页面
 router.get('/signup',function(req,res,next){
 //	res.end('请求注册页面');
-	res.render('signup.jade');
+	res.render('signup.jade',{title:'Sign up'});
 });
 
 module.exports=router;

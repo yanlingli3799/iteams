@@ -2,6 +2,7 @@ var express=require('express');
 var router=express.Router();
 
 router.post('/session',function(req,res,next){
+	//登录请求
 	res.end('post /session');
 });
 

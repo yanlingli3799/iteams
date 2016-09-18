@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  .sign
+    h2.text-center Join iTeams
+    .container.steps
+      .row
+        .col-md-2
+        .col-md-8
+          .col-md-4.bord
+            strong Step1:
+            p Set up a personal account
+          .col-md-4.bord
+            strong Step2:
+            p Improve your personal information
+          .col-md-4.bord
+            strong Step3:
+            p Choose your skill
+        .col-md-2
+
+    .container
+      form.form-horizontal(role='form',method='post',action='/session')
+        .form-group
+          label.col-md-4.control-label Email
+          .col-md-4
+            input.form-control(type='email',id='user_email',name='user_email', placeholder='Email' required autofocus)
+          p.help-block say something about input email
+        .form-group
+          label.col-md-4.control-label Name
+          .col-md-4
+            input.form-control(type='email',id='user_name',name='user_name', placeholder='Name' required autofocus)
+          p.help-block say something about input name
+        .form-group
+          label.col-md-4.control-label Password
+          .col-md-4
+            input.form-control(type='email',id='user_password',name='user_password', placeholder='Password' required autofocus)
+          p.help-block say something about input password
+        .form-group
+          .col-md-offset-4.col-md-4
+            button.btn.btn-primary.btn-block(type='submit') Create an account
+
