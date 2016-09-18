@@ -9,7 +9,7 @@ var app=express();
 
 var router_page=require(path.join(p_root,'app/routers/page.server.router.js'));
 var router_session=require(path.join(p_root,'app/routers/session.server.router.js'));
-var router_user=require(path.join(p_root,'app/routers/user.server.router.js'));
+var router_account=require(path.join(p_root,'app/routers/account.server.router.js'));
 var router_project=require(path.join(p_root,'app/routers/project.server.router.js'));
 var router_task=require(path.join(p_root,'app/routers/task.server.router.js'));
 var router_notification=require(path.join(p_root,'app/routers/notification.server.router.js'));
@@ -31,7 +31,7 @@ app.use(express.static(path.join(p_root, 'public')));
 
 app.use(router_page);
 app.use(router_session);
-app.use(router_user);
+app.use(router_account);
 app.use(router_project);
 app.use(router_task);
 app.use(router_notification);

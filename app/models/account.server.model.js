@@ -2,41 +2,41 @@ var mongoose = require('mongoose');
 
 Schema = mongoose.Schema;
 
-var UserSchema = new Schema({
-  u_email:{
+var AccountSchema = new Schema({
+  a_email:{
   	type:String,
   	required:true,
   	unique:true
   	//邮箱格式要求
   },
-  u_password:{
+  a_password:{
   	type:String,
   	required:true
   	//密码要求
   },
-  u_name: {
+  a_name: {
   	type:String,
   	required:true,
   	unique:true
   	//姓名要求
   },
-  u_phone:{
+  a_phone:{
   	type:String,
   	//电话号码格式要求
   },
-  u_signtime:{
+  a_signtime:{
   	type: Date,
   	default: Date.now
   },
-  u_skills:[{
+  a_skills:[{
     type:String
-  }],
-  u_projects:[{
+  }]/*,
+  a_projects:[{
     type:Schema.Types.ObjectId,
     ref:'Projects'
     //项目列表
-  }]
+  }]*/
 });
 
 
-var User=mongoose.model('User', UserSchema)
+var User=mongoose.model('Account', AccountSchema);
