@@ -1,11 +1,26 @@
 var express=require('express');
+var path=require('path');
+var p_root=process.cwd();
 
 var router=express.Router();
+var check=require(path.join(p_root,'config/check.js'));
 
 //主页面
 router.get('/',function(req,res,next){
-	console.log('someone connect to me');
-	res.render('index.jade', { title: 'Index' });
+
+	console.log('someone connect to me.........');
+
+	if(check.isObjectEmpty(req.cookies))
+	{
+		console.log('cookies is empty,redirect to signin');
+		res.redirect('/signin');
+	}
+	else
+	{
+		//cookie认证，不通过清除cookie，重定向到signin；通过显示主页面
+		//res.render('index.jade', { title: 'Index' });
+	}
+
 });
 
 //登录页面
