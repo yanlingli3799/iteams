@@ -15,6 +15,7 @@ var router_task=require(path.join(p_root,'app/routers/task.server.router.js'));
 var router_notification=require(path.join(p_root,'app/routers/notification.server.router.js'));
 var router_member=require(path.join(p_root,'app/routers/member.server.router.js'));
 var router_group=require(path.join(p_root,'app/routers/group.server.router.js'));
+var router_error=require(path.join(p_root,'app/routers/error.server.router.js'));
 
 // view engine setup
 app.set('views', path.join(p_root, 'app/views'));
@@ -36,6 +37,7 @@ app.use(router_task);
 app.use(router_notification);
 app.use(router_member);
 app.use(router_group);
+app.use(router_error);//必须放在所有路由后面
 
 
 module.exports=app;

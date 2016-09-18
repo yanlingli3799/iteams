@@ -6,4 +6,4 @@ var NotificationSchema = new Schema({
 
 });
 
-var News = mongoose.model('Notification', NotificationSchema);
+var Notification = mongoose.model('Notification', NotificationSchema);

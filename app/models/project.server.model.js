@@ -6,4 +6,4 @@ var ProjectSchema = new Schema({
 
 });
 
-var News = mongoose.model('Project', ProjectSchema);
+var Project = mongoose.model('Project', ProjectSchema);

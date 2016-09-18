@@ -1,11 +1,15 @@
+'use strict'
+var path=require('path');
 var mongoose=require('mongoose');
-var Users=mongoose.model('User');
+
+//require(path.join(process.cwd(),'app/models/user.server.model.js'));
+var User=mongoose.model('User');
 
 module.exports={
 	//创建新用户
 	create:function(req,res,next,cb){
 
-	    var user = new Users({
+	    var user = new User({
 	    	u_email:'110@qq.com',
 	    	u_password:'pswd',
 	    	u_name:'name',

@@ -9,7 +9,7 @@ module.exports=function(){
 	mongoose.Promise=global.Promise;
 	var db=mongoose.connect(config.DB_URI);
 
-	db.require(path.join(p_root,'app/controllers/user.server.controller.js'));
+	require(path.join(p_root,'app/models/user.server.model.js'));
 
 	return db;
 };

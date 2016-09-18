@@ -38,4 +38,6 @@ var UserSchema = new Schema({
   }]
 });
 
-var News = mongoose.model('User', UserSchema);
+
+
+module.exports=mongoose.model('User', UserSchema);

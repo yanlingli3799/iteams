@@ -6,4 +6,4 @@ var TaskSchema = new Schema({
 
 });
 
-var News = mongoose.model('Task', TaskSchema);
+var Task = mongoose.model('Task', TaskSchema);
