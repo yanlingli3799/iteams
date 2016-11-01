@@ -9,6 +9,7 @@ module.exports=function(){
 	mongoose.Promise = global.Promise;
 	var db=mongoose.connect(config.DB_URI);
 
+	//引入自定义model
 	require(path.join(p_root,'app/models/account.server.model.js'));
 	require(path.join(p_root,'app/models/project.server.model.js'));
 	require(path.join(p_root,'app/models/task.server.model.js'));

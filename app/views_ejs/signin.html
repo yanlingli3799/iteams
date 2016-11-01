@@ -1,0 +1,68 @@
+<html lang="en" class="is-copy-enabled is-u2f-enabled" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Sign in</title>
+  <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" />
+  <link rel="stylesheet" href="/stylesheets/sign.css" type="text/css" />
+</head>
+
+<body>
+  <div class="container">
+    <form role="form" class="form-horizontal">
+      <div class="form-group">
+        <h2 class="col-sm-offset-4 col-sm-4">Sign in to iTeams</h2>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-4 control-label">Email</label>
+
+        <div class="col-sm-4">
+          <input type="email" id="signin_email" name="signin_email" placeholder="Email address" required autofocus class="form-control" />
+        </div>
+        <p class="help-block"></p>
+
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-4 control-label">Password</label>
+        <div class="col-sm-4">
+          <input type="password" id="signin_password" name="signin_password" placeholder="Password" required="" class="form-control" />
+        </div>
+        <p class="help-block"></p>
+
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-4">
+          <div class="checkbox">
+            <label><input type="checkbox" id="signin_rememberme" name="signin_rememberme"/> Remember me</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-4">
+          <button type="button" class="btn btn-primary btn-block" onclick="submitSignin()">Sign in</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-4">
+          <label>
+            New to iTeams?
+          </label>
+          <label>
+            <a href="/signup" target="_blank">Create a New Account</a>
+          </label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script type="text/javascript" src="/lib/angular/angular.js"></script>
+  <script type="text/javascript" src="/lib/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+  
+  <script type="text/javascript" src="/javascripts/submit.js"></script>
+  <script type="text/javascript" src="/javascripts/validate.js"></script>
+</body>
+</html>

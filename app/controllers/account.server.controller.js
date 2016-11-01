@@ -15,6 +15,7 @@ module.exports={
 	    	a_phone:'15555555555',
 	    	a_projects:[]
 	    });
+	    
 	    account.save(function(err){
 	      if(err){
 	      	console.log('create:save account error');
@@ -28,6 +29,37 @@ module.exports={
 	    });
 	},
 
-	list:function(req,res,next){},
-	getById:function(req,res,mext){}
+	list:function(req,res,next,cb){},
+	findOneByEmail:function(req,res,next,cb){
+		console.log("this is accountController findOneByEmail.........");
+		//根据邮箱和密码查找账号
+		Account.findOne(
+			{
+				a_email:req.body.email,
+				a_password:req.body.password
+			},
+			function(err,doc){
+				//1，查找出错
+				if(err)
+				{
+					console.log("accounts.findOneByEmail failed ......");
+					return cb(err,null);
+				}
+				else
+				{
+					//2，查找没出错，但是结果为null
+					//3，找到记录
+					if(doc==null)
+					{
+						console.log("accounts.findOneByEmail result is null ......");
+						return cb(new Error("result is null"),null);
+					}
+					else
+					{
+						console.log("accounts.findOneByEmail result is ",doc);
+						return cb(err,doc);
+					}
+				}
+			});
+	}
 };

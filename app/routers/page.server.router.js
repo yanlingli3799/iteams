@@ -15,7 +15,12 @@ var documentationController=require(path.join(p_root,'app/controllers/documentat
 router.get('/',function(req,res,next){
 //测试一下
 	console.log('someone connect to me.........');
-	/*测试创建project*/
+
+
+	
+	/*
+	//测试创建project
+
 	projectController.create(req,res,next,function(err,result){
 		if(err){
 			console.log('save project information error......');
@@ -23,7 +28,7 @@ router.get('/',function(req,res,next){
 			console.log('save project information success......');
 		}
 	});
-	/*测试创建task*/
+	//测试创建task
 	taskController.create(req,res,next,function(err,result){
 		if(err){
 			console.log('save task information error......');
@@ -31,7 +36,7 @@ router.get('/',function(req,res,next){
 			console.log('save task information success......');
 		}
 	});
-	/*测试创建notification*/
+	//测试创建notification
 	notificationController.create(req,res,next,function(err,result){
 		if(err){
 			console.log('save notification information error......');
@@ -39,7 +44,7 @@ router.get('/',function(req,res,next){
 			console.log('save notification information success......');
 		}
 	});
-	/*测试创建notification*/
+	//测试创建notification
 	documentationController.create(req,res,next,function(err,result){
 		if(err){
 			console.log('save documentation information error......');
@@ -47,18 +52,19 @@ router.get('/',function(req,res,next){
 			console.log('save documentation information success......');
 		}
 	});
+    */
 
 
-
+    //检查是否有cookies，没有则重定向到登录页面
 	if(check.isObjectEmpty(req.cookies))
 	{
 		console.log('cookies is empty,redirect to signin');
 		res.redirect('/signin');
 	}
-	else
+	else//有cookies，解析？
 	{
 		//cookie认证，不通过清除cookie，重定向到signin；通过显示主页面
-		res.render('index.jade', { title: 'Index' });
+		res.render('home', { title: 'Index' });
 	}
 
 });
@@ -66,14 +72,18 @@ router.get('/',function(req,res,next){
 //登录页面
 router.get('/signin',function(req,res,next){
 //	res.writeHead(200,{'Content-Type':'text/html;charset=utf-8'});
-	res.render('signin.jade',{title:'Sign in'});
+	res.render('signin',{});
 	res.end();
 });
 
 //注册页面
 router.get('/signup',function(req,res,next){
 //	res.end('请求注册页面');
-	res.render('signup.jade',{title:'Sign up'});
+	res.render('signup',{title:'Sign up'});
+});
+
+router.get('/home',function(req,res,next){
+	res.render('index',{title:'iteams test ejs'});
 });
 
 module.exports=router;

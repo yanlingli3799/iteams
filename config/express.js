@@ -3,6 +3,7 @@ var path=require('path');
 var bodyParser=require('body-parser');
 var cookieParser=require('cookie-parser');
 var logger=require('morgan');
+var favicon=require('favicon');
 
 var p_root=process.cwd();
 var app=express();
@@ -17,9 +18,19 @@ var router_member=require(path.join(p_root,'app/routers/member.server.router.js'
 var router_group=require(path.join(p_root,'app/routers/group.server.router.js'));
 var router_error=require(path.join(p_root,'app/routers/error.server.router.js'));
 
-// view engine setup
-app.set('views', path.join(p_root, 'app/views'));
+
+//ejs模板引擎
+app.set('views', path.join(p_root, 'app/views_ejs'));
+app.engine('.html',require('ejs').__express);
+app.set('view engine', 'html');
+
+
+/*
+//jade模板引擎
+app.set('views', path.join(p_root, 'app/views_jade'));
 app.set('view engine', 'jade');
+*/
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(p_root, 'public', 'favicon.ico')));
@@ -29,6 +40,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(p_root, 'public')));
 
+
+
+
+//挂载自定义路由模块
 app.use(router_page);
 app.use(router_session);
 app.use(router_account);
@@ -37,7 +52,7 @@ app.use(router_task);
 app.use(router_notification);
 app.use(router_member);
 app.use(router_group);
-app.use(router_error);//必须放在所有路由后面
+//app.use(router_error);//必须放在所有路由后面
 
 
 module.exports=app;

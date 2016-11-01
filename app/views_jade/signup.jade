@@ -3,21 +3,7 @@ extends layout
 block content
   .sign
     h2.text-center Join iTeams
-    .container.steps
-      .row
-        .col-md-2
-        .col-md-8
-          .col-md-4.bord
-            strong Step1:
-            p Set up a personal account
-          .col-md-4.bord
-            strong Step2:
-            p Improve your personal information
-          .col-md-4.bord
-            strong Step3:
-            p Choose your skill
-        .col-md-2
-
+    
     .container
       form.form-horizontal(role='form',method='post',action='/session')
         .form-group
@@ -33,8 +19,13 @@ block content
         .form-group
           label.col-md-4.control-label Password
           .col-md-4
-            input.form-control(type='password',id='user_password',name='user_password', placeholder='Password' required autofocus)
+            input.form-control(type='password',id='user_password1',name='user_password1', placeholder='Password' required autofocus)
           p.help-block say something about input password
+        .form-group
+          label.col-md-4.control-label Repeat Password
+          .col-md-4
+            input.form-control(type='password',id='user_password2',name='user_password2', placeholder='Password' required autofocus)
+          p.help-block say something about repeat input password
         .form-group
           .col-md-offset-4.col-md-4
             button.btn.btn-primary.btn-block(type='submit') Create an account
