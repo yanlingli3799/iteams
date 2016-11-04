@@ -1,7 +1,10 @@
 'use strict'
 var path=require('path');
+var p_root=process.cwd();
 var mongoose=require('mongoose');
 var Account=mongoose.model('Account');
+var tools = require(path.join(p_root,'config/tools.js'));
+
 
 module.exports={
 	//创建新账号
@@ -30,19 +33,20 @@ module.exports={
 	},
 
 	list:function(req,res,next,cb){},
-	findOneByEmail:function(req,res,next,cb){
+	
+	findOneByEmail:function(obj,next,cb){
 		console.log("this is accountController findOneByEmail.........");
 		//根据邮箱和密码查找账号
 		Account.findOne(
 			{
-				a_email:req.body.email,
-				a_password:req.body.password
+				a_email:obj.email,
+				a_password:obj.password
 			},
 			function(err,doc){
 				//1，查找出错
 				if(err)
 				{
-					console.log("accounts.findOneByEmail failed ......");
+					tools.log(5,"accounts.findOneByEmail failed ......");
 					return cb(err,null);
 				}
 				else
@@ -51,12 +55,12 @@ module.exports={
 					//3，找到记录
 					if(doc==null)
 					{
-						console.log("accounts.findOneByEmail result is null ......");
+						tools.log(5,"accounts.findOneByEmail result is null ......");
 						return cb(new Error("result is null"),null);
 					}
 					else
 					{
-						console.log("accounts.findOneByEmail result is ",doc);
+						tools.log(5,"accounts.findOneByEmail result is ",doc);
 						return cb(err,doc);
 					}
 				}

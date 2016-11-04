@@ -4,20 +4,34 @@
   <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" />
   <link rel="stylesheet" href="/stylesheets/sign.css" type="text/css" />
+
+  <script type="text/javascript" src="/lib/angular/angular.js"></script>
+  <script type="text/javascript" src="/lib/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+  
+  <script type="text/javascript" src="/javascripts/signin.js"></script>
+  <script type="text/javascript" src="/javascripts/validate.js"></script>
+  
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" ng-app="ng_signin" ng-controller="ng_signin_ctrl">
+
     <form role="form" class="form-horizontal">
+
       <div class="form-group">
         <h2 class="col-sm-offset-4 col-sm-4">Sign in to iTeams</h2>
+      </div>
+
+      <div class="form-group" ng-hide="signin_warning_hide">
+        <label class="col-sm-offset-4 col-sm-4 alert alert-warning">{{singin_warning_msg}}</label>
       </div>
 
       <div class="form-group">
         <label class="col-sm-4 control-label">Email</label>
 
         <div class="col-sm-4">
-          <input type="email" id="signin_email" name="signin_email" placeholder="Email address" required autofocus class="form-control" />
+          <input type="email" ng-model="signin_email" placeholder="Email address" required class="form-control" />
         </div>
         <p class="help-block"></p>
 
@@ -26,7 +40,7 @@
       <div class="form-group">
         <label class="col-sm-4 control-label">Password</label>
         <div class="col-sm-4">
-          <input type="password" id="signin_password" name="signin_password" placeholder="Password" required="" class="form-control" />
+          <input type="password" ng-model="signin_password" placeholder="Password" required class="form-control" />
         </div>
         <p class="help-block"></p>
 
@@ -35,14 +49,14 @@
       <div class="form-group">
         <div class="col-sm-offset-4 col-sm-4">
           <div class="checkbox">
-            <label><input type="checkbox" id="signin_rememberme" name="signin_rememberme"/> Remember me</label>
+            <label><input type="checkbox" ng-model="signin_rememberme" /> Remember me</label>
           </div>
         </div>
       </div>
 
       <div class="form-group">
         <div class="col-sm-offset-4 col-sm-4">
-          <button type="button" class="btn btn-primary btn-block" onclick="submitSignin()">Sign in</button>
+          <button type="button" class="btn btn-primary btn-block" ng-click="submitSignin()">Sign in</button>
         </div>
       </div>
 
@@ -52,17 +66,12 @@
             New to iTeams?
           </label>
           <label>
-            <a href="/signup" target="_blank">Create a New Account</a>
+            <a href="/signup">Create a New Account</a>
           </label>
         </div>
       </div>
     </form>
   </div>
-  <script type="text/javascript" src="/lib/angular/angular.js"></script>
-  <script type="text/javascript" src="/lib/jquery/dist/jquery.js"></script>
-  <script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.js"></script>
-  
-  <script type="text/javascript" src="/javascripts/submit.js"></script>
-  <script type="text/javascript" src="/javascripts/validate.js"></script>
+
 </body>
 </html>
