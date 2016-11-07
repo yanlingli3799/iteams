@@ -9,6 +9,7 @@ var favicon=require('favicon');
 var p_root=process.cwd();
 var app=express();
 
+var router_all=require(path.join(p_root,'app/routers/all.server.router.js'));
 var router_page=require(path.join(p_root,'app/routers/page.server.router.js'));
 var router_session=require(path.join(p_root,'app/routers/session.server.router.js'));
 var router_account=require(path.join(p_root,'app/routers/account.server.router.js'));
@@ -43,9 +44,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(p_root, 'public')));
 
 
-
-
 //挂载自定义路由模块
+app.use(router_all);
 app.use(router_page);
 app.use(router_session);
 app.use(router_account);
@@ -56,6 +56,5 @@ app.use(router_member);
 app.use(router_favicon);
 app.use(router_group);
 //app.use(router_error);//必须放在所有路由后面
-
 
 module.exports=app;

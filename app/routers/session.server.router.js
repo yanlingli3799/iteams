@@ -48,11 +48,11 @@ router.post('/session',function(req,res,next){
 			//配置session和cookie......
 			if("true" == obj_in.rememberme)
 			{
-				res.cookie('user_email',obj_in.email,{expires:new Date(Date.now()+CFG.COOKIE_EXPIRES)});
+				res.cookie('passport',obj_in.email,{expires:new Date(Date.now()+CFG.COOKIE_EXPIRES)});
 			}
 			else
 			{
-				res.cookie('user_email',obj_in.email,{expires:CFG.COOKIE_DELETE});
+				res.cookie('passport',obj_in.email,{expires:CFG.COOKIE_DELETE});
 			}
 
 			obj_out.status=true;

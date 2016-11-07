@@ -12,26 +12,7 @@ var documentationController=require(path.join(p_root,'app/controllers/documentat
 
 
 router.get('/',function(req,res,next){
-
-	tools.log(5,'someone connect to me.........');
-	tools.log(5,JSON.stringify(req.body, null, 2));
-
-//手动清除cookie
-//	res.cookie('user_email','1101076815@qq.com',{expires:0});
-
-    //检查是否有cookies，没有则重定向到登录页面
-	if(tools.isObjectEmpty(req.cookies))
-	{
-		tools.log(5,'cookies is empty,redirect to signin');
-		res.redirect('/signin');
-	}
-	else//有cookies，解析？
-	{
-		//cookie认证，不通过清除cookie，重定向到signin；通过显示主页面
-		tools.log(5,"接收到的cookie是：",req.cookies);
-		res.redirect('/home');
-	}
-
+	res.redirect('/home');
 });
 
 //登录页面

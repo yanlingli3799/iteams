@@ -8,8 +8,9 @@ var mongodb=require(path.join(p_root,'config/mongoose.js'));
 var db=mongodb();
 
 var express=require(path.join(p_root,'config/express.js'));
-
 //var app=express();
+
+var redis=require(path.join(p_root,'config/redis.js'));
 
 module.exports=express;
 

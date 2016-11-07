@@ -13,8 +13,8 @@ var app = require(path.join(p_root,'app.js'));
 var server=http.createServer(app);
 
 /*启动网络服务监听端口*/
-server.listen(config.PORT,function(){
-	console.log('iteams: listening on port ',config.PORT);
+server.listen(config.PORT_APP,function(){
+	console.log('iteams: listening on port ',config.PORT_APP);
 });
 
 //server.on('error',onError);
