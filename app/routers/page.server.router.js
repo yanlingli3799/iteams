@@ -3,7 +3,6 @@ var path=require('path');
 var p_root=process.cwd();
 
 var router=express.Router();
-var tools=require(path.join(p_root,'config/tools.js'));
 
 var projectController=require(path.join(p_root,'app/controllers/project.server.controller.js'));
 var taskController=require(path.join(p_root,'app/controllers/task.server.controller.js'));

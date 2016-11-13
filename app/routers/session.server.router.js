@@ -2,7 +2,6 @@ var express=require('express');
 var router=express.Router();
 var path=require('path');
 var p_root=process.cwd();
-var tools = require(path.join(p_root,'config/tools.js'));
 var accountController=require(path.join(p_root,'app/controllers/account.server.controller.js'));
 
 
@@ -24,8 +23,8 @@ obj_out.status
 */
 router.post('/session',function(req,res,next){
 
-	tools.log(5,"用户登录，这里是post session............");
-	tools.log(5,"用户输入的信息：",JSON.stringify(req.body, null, 2));
+	console.log("用户登录，这里是post session............");
+	console.log("用户输入的信息：",JSON.stringify(req.body, null, 2));
 
 	var obj_in=new Object;
 	obj_in.email=req.body.signin_email;
@@ -34,17 +33,17 @@ router.post('/session',function(req,res,next){
 
 
 	//检查登录信息是否合法，去数据库里查，是否有这个用户
-	tools.log(5,"接下来要检查登录信息是否合法........");
+	console.log("接下来要检查登录信息是否合法........");
 	accountController.findOneByEmail(obj_in,next,function(err,result){
 		var obj_out=new Object;
 		if(err)
 		{
-			tools.log(5,"查找出错或没有找到相关记录...");
+			console.log("查找出错或没有找到相关记录...");
 			obj_out.status=false;
 		}
 		else
 		{
-			tools.log(5,"查找成功...");
+			console.log("查找成功...");
 			//配置session和cookie......
 			if("true" == obj_in.rememberme)
 			{
